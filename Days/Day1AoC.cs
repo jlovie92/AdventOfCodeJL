@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace AdventOfCodeJL.Days
 {
@@ -24,6 +25,9 @@ namespace AdventOfCodeJL.Days
 
             int totalCalories = 0;
 
+            List<int> topCalories = new List<int>();
+
+            int index = 0;
             foreach (String line in inputLines)
             {
                 if(!String.IsNullOrWhiteSpace(line))
@@ -33,17 +37,28 @@ namespace AdventOfCodeJL.Days
                 }
                 else
                 {
-                    if(totalCalories > highestCalories)
+                    topCalories.Add(totalCalories);
+                    if (totalCalories > highestCalories)
                     {
                         highestCalories = totalCalories;
                     }
-
                     elf++;
                     totalCalories = 0;
                 }
-            }
 
+                if ((inputLines.Count -1) == index)
+                {
+                    topCalories.Add(totalCalories);
+                }
+                index++;
+            }
+            topCalories.Sort();
             Console.WriteLine("The winner is: " + winner + " with a calorie total of: " + highestCalories);
+            int listIndex = topCalories.Count-1;
+            int elf1 = topCalories[listIndex--];
+            int elf2 = topCalories[listIndex--];
+            int elf3 = topCalories[listIndex--];
+            Console.WriteLine("Part two answer is:" + (elf1 + elf2 + elf3));
         }
     }
 }
