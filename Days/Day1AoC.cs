@@ -60,5 +60,10 @@ namespace AdventOfCodeJL.Days
             int elf3 = topCalories[listIndex--];
             Console.WriteLine("Part two answer is:" + (elf1 + elf2 + elf3));
         }
+
+        public override string getName()
+        {
+            return "Day 1";
+        }
     }
 }
