@@ -45,6 +45,7 @@
   <ItemGroup>
     <Compile Include="Days\AdventOfCodeSolution.cs" />
     <Compile Include="Days\Day1AoC.cs" />
+    <Compile Include="Days\Day2AoC.cs" />
     <Compile Include="FileInputReader.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -54,6 +55,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="input\day1Input.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="input\day2Input.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>

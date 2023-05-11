@@ -1,5 +1,6 @@
 ﻿using AdventOfCodeJL.Days;
 using System;
+using System.Collections.Generic;
 
 namespace AdventOfCodeJL
 {
@@ -7,9 +8,17 @@ namespace AdventOfCodeJL
     {
         static void Main(string[] args)
         {
-            Day1AoC d1 = new Day1AoC();
-            d1.StartSolution();
+            List<AdventOfCodeSolution> solutions = new List<AdventOfCodeSolution>();
+            solutions.Add(new Day1AoC());
+            solutions.Add(new Day2AoC());
 
+            foreach(AdventOfCodeSolution sol in solutions)
+            {
+                String startString = "--------> Running Solution : " + sol.getName() +"\n\n";
+                System.Console.WriteLine(startString);
+                sol.StartSolution();
+            }
+            
             Console.ReadKey();
         }
     }
