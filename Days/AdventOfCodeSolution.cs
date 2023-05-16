@@ -14,6 +14,6 @@ namespace AdventOfCodeJL.Days
 
         abstract public void StartSolution();
 
-        abstract public String getName();
+        abstract public String GetName();
     }
 }

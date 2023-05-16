@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace AdventOfCodeJL.Days
 {
@@ -16,15 +14,17 @@ namespace AdventOfCodeJL.Days
 
         private const char SCISSSORS = 'C';
 
-        private Dictionary<char, char> win2LoseMap;
-        private Dictionary<char, char> Lose2WinMap;
+        private readonly Dictionary<char, char> win2LoseMap;
+        private readonly Dictionary<char, char> Lose2WinMap;
 
         private Day2AoC(String path) : base(path)
         {
-            win2LoseMap = new Dictionary<char, char>();
-            win2LoseMap.Add(ROCK,SCISSSORS);
-            win2LoseMap.Add(SCISSSORS,PAPER);
-            win2LoseMap.Add(PAPER,ROCK);
+            win2LoseMap = new Dictionary<char, char>
+            {
+                { ROCK, SCISSSORS },
+                { SCISSSORS, PAPER },
+                { PAPER, ROCK }
+            };
 
             Lose2WinMap = win2LoseMap.ToDictionary(x => x.Value, x => x.Key);
         }
@@ -45,12 +45,12 @@ namespace AdventOfCodeJL.Days
                 String[] choices = line.Split(splitBy);
 
                 char opponentChoice = char.Parse(choices[0]);
-                char yourChoice = decryptChoice(char.Parse(choices[1]));
+                char yourChoice = DecryptChoice(char.Parse(choices[1]));
 
-                char roundOutcomeChoice = decryptRoundEndChoice(opponentChoice, char.Parse(choices[1]));
+                char roundOutcomeChoice = DecryptRoundEndChoice(opponentChoice, char.Parse(choices[1]));
 
-                totalScore += getPlayerScore(opponentChoice, yourChoice);
-                roundOutcomeDeterminedScore += getPlayerScore(opponentChoice,roundOutcomeChoice);
+                totalScore += GetPlayerScore(opponentChoice, yourChoice);
+                roundOutcomeDeterminedScore += GetPlayerScore(opponentChoice, roundOutcomeChoice);
 
 
             }
@@ -59,10 +59,10 @@ namespace AdventOfCodeJL.Days
             System.Console.WriteLine("Your total Rock Paper Scissors score determined by the round outcome is : " + roundOutcomeDeterminedScore);
         }
 
-        private char decryptRoundEndChoice(char opponentChoice, char roundOutcome)
+        private char DecryptRoundEndChoice(char opponentChoice, char roundOutcome)
         {
             // x lose, y draw, z win
-            if('X' == roundOutcome)
+            if ('X' == roundOutcome)
             {
                 return win2LoseMap[opponentChoice];
             }
@@ -78,17 +78,19 @@ namespace AdventOfCodeJL.Days
             return 'L';
         }
 
-        private static char decryptChoice(char choice)
+        private static char DecryptChoice(char choice)
         {
             char decryptedChoice = 'N';
 
             if ('X' == choice)
             {
                 decryptedChoice = ROCK;
-            } else if ('Y' == choice)
+            }
+            else if ('Y' == choice)
             {
                 decryptedChoice = PAPER;
-            } else if('Z' == choice)
+            }
+            else if ('Z' == choice)
             {
                 decryptedChoice = SCISSSORS;
             }
@@ -96,9 +98,9 @@ namespace AdventOfCodeJL.Days
             return decryptedChoice;
         }
 
-        public int getPlayerScore(char opponentChoice, char playerChoice)
+        public int GetPlayerScore(char opponentChoice, char playerChoice)
         {
-            int score = getShapeValue(playerChoice);
+            int score = GetShapeValue(playerChoice);
 
             bool youWin = win2LoseMap[playerChoice] == opponentChoice;
 
@@ -106,7 +108,8 @@ namespace AdventOfCodeJL.Days
             if (youWin)
             {
                 score += 6;
-            }else if(playerChoice == opponentChoice)
+            }
+            else if (playerChoice == opponentChoice)
             {
                 score += 3;
             }
@@ -114,7 +117,7 @@ namespace AdventOfCodeJL.Days
             return score;
         }
 
-        private int getShapeValue(char shape)
+        private int GetShapeValue(char shape)
         {
             int shapeScore;
 
@@ -137,7 +140,7 @@ namespace AdventOfCodeJL.Days
             return shapeScore;
         }
 
-    public override string getName()
+        public override string GetName()
         {
             return "Day 2";
         }

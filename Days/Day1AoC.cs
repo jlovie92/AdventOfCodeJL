@@ -8,7 +8,7 @@ namespace AdventOfCodeJL.Days
         public static readonly String PATH = "input/day1Input.txt";
         private Day1AoC(String path) : base(path)
         {
-            
+
         }
 
         public Day1AoC() : this(PATH)
@@ -30,7 +30,7 @@ namespace AdventOfCodeJL.Days
             int index = 0;
             foreach (String line in inputLines)
             {
-                if(!String.IsNullOrWhiteSpace(line))
+                if (!String.IsNullOrWhiteSpace(line))
                 {
 
                     totalCalories += int.Parse(line);
@@ -46,7 +46,7 @@ namespace AdventOfCodeJL.Days
                     totalCalories = 0;
                 }
 
-                if ((inputLines.Count -1) == index)
+                if ((inputLines.Count - 1) == index)
                 {
                     topCalories.Add(totalCalories);
                 }
@@ -54,14 +54,14 @@ namespace AdventOfCodeJL.Days
             }
             topCalories.Sort();
             Console.WriteLine("The winner is: " + winner + " with a calorie total of: " + highestCalories);
-            int listIndex = topCalories.Count-1;
+            int listIndex = topCalories.Count - 1;
             int elf1 = topCalories[listIndex--];
             int elf2 = topCalories[listIndex--];
             int elf3 = topCalories[listIndex--];
             Console.WriteLine("Part two answer is:" + (elf1 + elf2 + elf3));
         }
 
-        public override string getName()
+        public override string GetName()
         {
             return "Day 1";
         }

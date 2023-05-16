@@ -6,19 +6,24 @@ namespace AdventOfCodeJL
 {
     class Program
     {
-        static void Main(string[] args)
+        static void Main()
         {
-            List<AdventOfCodeSolution> solutions = new List<AdventOfCodeSolution>();
-            solutions.Add(new Day1AoC());
-            solutions.Add(new Day2AoC());
-
-            foreach(AdventOfCodeSolution sol in solutions)
+            List<AdventOfCodeSolution> solutions = new List<AdventOfCodeSolution>
             {
-                String startString = "--------> Running Solution : " + sol.getName() +"\n\n";
+                new Day1AoC(),
+                new Day2AoC(),
+                new Day3AoC()
+            };
+
+            foreach (AdventOfCodeSolution sol in solutions)
+            {
+                String startString = "--------> Running Solution : " + sol.GetName() + "\n\n";
                 System.Console.WriteLine(startString);
                 sol.StartSolution();
             }
-            
+
+            System.Console.WriteLine("-------------------------------------------------------------- \ndone.");
+
             Console.ReadKey();
         }
     }

@@ -1,9 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace AdventOfCodeJL
 {
@@ -20,17 +17,17 @@ namespace AdventOfCodeJL
             {
                 line = sr.ReadLine();
 
-                while(line != null)
+                while (line != null)
                 {
                     lines.Add(line);
                     line = sr.ReadLine();
                 }
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 Console.WriteLine(e.Message);
             }
-            
+
             return lines;
         }
     }
