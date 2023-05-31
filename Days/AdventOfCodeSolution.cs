@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace AdventOfCodeJL.Days
 {
-    abstract class AdventOfCodeSolution
+    public abstract class AdventOfCodeSolution
     {
         public readonly List<string> inputLines;
 

@@ -2,7 +2,7 @@
 
 namespace AdventOfCodeJL.Days
 {
-    class Day4AoC : AdventOfCodeSolution
+    public class Day4AoC : AdventOfCodeSolution
     {
         public static readonly String PATH = "input/day4Input.txt";
 
@@ -39,7 +39,7 @@ namespace AdventOfCodeJL.Days
                 {
                     count++;
                 }
-                if (sectionOne.IsOverlapped(sectionTwo) || sectionTwo.IsOverlapped(sectionOne))
+                if (sectionOne.IsOverlapped(sectionTwo))
                 {
                     overlapCount++;
                 }
@@ -50,7 +50,7 @@ namespace AdventOfCodeJL.Days
         }
     }
 
-    class Section
+    public class Section
     {
         private int StartSection { get; }
         private int EndSection { get; }
@@ -68,7 +68,7 @@ namespace AdventOfCodeJL.Days
 
         public bool IsOverlapped(Section section)
         {
-            return IsInRange(section.StartSection) || IsInRange(section.EndSection);
+            return (IsInRange(section.StartSection) || IsInRange(section.EndSection)) || (section.IsInRange(this.StartSection) || section.IsInRange(this.EndSection));
         }
 
         private bool IsInRange(int number)
