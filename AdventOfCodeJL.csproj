@@ -62,6 +62,7 @@
     <Compile Include="Days\Day1AoC.cs" />
     <Compile Include="Days\Day2AoC.cs" />
     <Compile Include="Days\Day3AoC.cs" />
+    <Compile Include="Days\Day4AoC.cs" />
     <Compile Include="FileInputReader.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -77,6 +78,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="input\day3Input.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="input\day4Input.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>

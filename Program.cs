@@ -12,7 +12,8 @@ namespace AdventOfCodeJL
             {
                 new Day1AoC(),
                 new Day2AoC(),
-                new Day3AoC()
+                new Day3AoC(),
+                new Day4AoC()
             };
 
             foreach (AdventOfCodeSolution sol in solutions)
